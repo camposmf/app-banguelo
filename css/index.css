@@ -1,0 +1,80 @@
+
+.login-content {
+    width: 100vw;
+    height: 100vh;
+    background-color: #E8EBF0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.container {
+    padding: 0;
+    width: 960px;
+    height: 80vh;
+    display: flex;
+    word-wrap: break-word;
+    border-radius: 0.35rem;
+    background-color: #fff;   
+}
+
+.login-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 50%;
+    height: 100%;
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #001E6C;
+    border-radius: 0.35rem 0 0 0.35rem;
+    background-image: url('../img/logo-login.png');
+}
+
+.login-form {
+    width: 50%;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.login-form .login-create-user{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-form .btn-login {
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    background-color: #035397;
+}
+
+.login-form .btn-create-user{
+    color: #035397;
+    font-weight: bold;
+    background-color: #E8EBF0;
+}
+
+.login-form .text-password{
+    cursor: pointer;
+    font-weight: 700;
+    text-align: right;
+    color: #035397;
+    margin-bottom: 2rem;
+}
+
+.login-form small {
+    font-weight: 700;
+    color: #035397;
+}

@@ -1,0 +1,44 @@
+
+.consult-table .page-title{
+    margin: 5rem 0 3rem;
+    text-align: center;
+}
+
+
+.page-content .btn-subject{
+    font-weight: bold;
+    color: #fff;
+    background-color: #035397;
+}
+
+.page-content .btn-cancel{
+    color: #035397;
+    font-weight: bold;
+    background-color: #E8EBF0;
+}
+
+.page-content .btn {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.page-content .form-buttons{
+    display: flex;
+    align-items: center;
+}
+
+.consult-table .tbody td {
+    text-align: center;
+}
+
+.consult-table .tbody .btn-edit {
+    color: #035397;
+    font-weight: bold;
+    background-color: #E8EBF0;
+}
+
+.consult-table .tbody .btn-remove{
+    color: #fff;
+    font-weight: bold;
+    background-color: #FFAA4C;
+}

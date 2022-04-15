@@ -1,0 +1,30 @@
+
+.home-content {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.home-content .form-inputs{
+    display: flex;
+    margin-bottom: 2rem;   
+}
+
+.home-content .btn-check-email{
+    font-weight: bold;
+    color: #fff;
+    background-color: #035397;
+}
+
+.home-content .btn-logoff{
+    color: #035397;
+    font-weight: bold;
+    background-color: #E8EBF0;
+}
+
+.home-content .btn {
+    width: 300px;
+    margin-left: 20px;
+}

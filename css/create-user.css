@@ -1,0 +1,36 @@
+
+.container {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.form-create-user{
+    height: 80%;
+    width: 70%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.form-create-user h1 {
+    text-align: center !important;
+}
+
+.form-create-user .btn-create-user{
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    background-color: #035397;
+}
+
+.form-create-user .inputs {
+    margin-bottom: 0.5rem;
+}
+
+.form-create-user .btn-logoff {
+    color: #035397;
+    font-weight: bold;
+    background-color: #E8EBF0;
+}

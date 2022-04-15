@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+
+    <link 
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" 
+        rel="stylesheet"
+    >
+    
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous"
+    >
+
+    <link rel="stylesheet" href="../css/configuration.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/create-user.css">
+
+</head>
+<body>
+    <div class="login-content">
+        <div class="container">
+            <form id="form-create-user" class="form-create-user">
+                <h1 class="text-justify font-weight-bold page-title" >Create a new User</h1>
+                <div class="inputs">
+                    <div class="form-group">
+                        <label for="inputEmail" class="page-text">Email Address</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address... ">
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword" class="page-text">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Enter a safe password">
+                      </div>
+                      <button type="submit" class="btn btn-create-user">Add new User</button>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn form-group btn-logoff" id="btnLogoff">Logoff</button>    
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!--Recursos do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+
+    <!--Programação feita pelo JS -->
+    <script src="../js/fireabase.js"></script>
+    <script src="../js/user/create-user.js"></script>
+</body>
+</html>

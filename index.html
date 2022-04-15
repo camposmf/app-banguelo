@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript With Firebase</title>
+
+    <link 
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" 
+        rel="stylesheet"
+    >
+
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+        crossorigin="anonymous"
+    >
+
+    <link rel="stylesheet" href="../css/configuration.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+<body>
+    <div class="login-content">
+        <div class="container">
+            <div class="login-image">
+            </div>
+            <div class="login-form">
+                <h1 class="text-justify font-weight-bold page-title">Login</h1>
+                <form id="form-auth-login" class="form-group">
+                    <div class="form-group">
+                        <label for="inputEmail" class="page-text">Email Address</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address... ">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="page-text">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Enter a safe password">
+                        <small class="form-text text-password">
+                            <a class="login-anchor text-decoration-none" id="btnPassword">Forget Password ?</a>
+                        </small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login">
+                        Login
+                    </button>
+                </form>
+                <div class="login-create-user">
+                    <small class="form-text">Don't have an account yet ?</small>
+                    <button type="submit" id="btnCreateUser" class="btn btn-create-user">Create an Account</button>
+                </div>         
+            </div>
+        </div>        
+    </div>
+
+    <!--Recursos do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+
+    <!--Programação feita pelo JS -->
+    <script src="./js/fireabase.js"></script>
+    <script src="./js/authentication.js"></script>
+
+</body>
+</html>
