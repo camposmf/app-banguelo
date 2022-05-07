@@ -5,6 +5,7 @@ const consultSubject = document.getElementById('consultSubject');
 const inputSubjectId = document.getElementById('subjectId');
 const inputSubjectCode = document.getElementById('subjectCode');
 const inputSubjectName = document.getElementById('subjectName');
+const inputSubjectFile = document.getElementById('subjectFile');
 
 const btnCancel = document.getElementById('btnCancel');
 const currentLink = document.getElementById('currentLink');
@@ -41,28 +42,96 @@ if(btnCancel){
 if(btnUpdateSubject){
     btnUpdateSubject.onclick = (event) => {
         event.preventDefault();
-    
-        const data = {
-            subjectName: inputSubjectName.value,
-            subjectNameLowerCase: inputSubjectCode.value.toLowerCase(),
-            subjectCode: inputSubjectCode.value
-        };
-    
-        dbRefUsers.child(firebase.auth().currentUser.uid)
-                  .child(itemKey)
-                  .update(data)
-                  .then(() => {
-                      console.log(`Subject has been updated successfully`);
-                  })
-                  .catch((error) => {
-                      alert('Failed to updated subject. ', error);
-                  });
         
-        currentLink.innerText = "Consult Subject";
-        consultSubject.setAttribute('class', 'd-block');
-        updateSubject.setAttribute('class', 'd-none');
+        let getFile     = inputSubjectFile.files[0];
+        let getFileType = getFile.type;
+        let getFileName = getFile.name;
         
+        if (getFile = ! null) {
+
+            if (getFileType.includes('image')) {
+
+                let imgName = firebase.database().ref().push().key + '-' + getFileName;
+                let imgPath = 'banguelinhaFiles/' + firebase.auth().currentUser.uid + '/' + imgName;
+
+                let storageRef = firebase.storage().ref(imgPath);
+                let uploadFile = storageRef.put(inputSubjectFile.files[0]);
+
+                handleUploadFile(uploadFile).then(() => {
+
+                    storageRef.getDownloadURL().then((downloadUrl) => {
+                    
+                        const data = {
+                            imgUrl: downloadUrl,
+                            subjectCode: inputSubjectCode.value,
+                            subjectName: inputSubjectName.value,
+                            subjectNameLowerCase: inputSubjectName.value.toLowerCase()
+                        };
+            
+                        dbRefUsers.child(firebase.auth().currentUser.uid)
+                                  .child(itemKey)
+                                  .update(data)
+                                  .then(() => {
+                                      console.log(`Subject has been updated successfully`);
+                                  })
+                                  .catch((error) => {
+                                      alert('Failed to updated subject. ', error);
+                                  });
+            
+                        currentLink.innerText = "Consult Subject";
+                        consultSubject.setAttribute('class', 'd-block');
+                        updateSubject.setAttribute('class', 'd-none');
+
+                    }).catch((error) => {
+                        console.log('Falha ao adicionar disciplina: ', error);
+                    });
+    
+                });
+
+            } else {
+                console.log('corrida');
+    
+                const data = {
+                    subjectName: inputSubjectName.value,
+                    subjectNameLowerCase: inputSubjectName.value.toLowerCase(),
+                    subjectCode: inputSubjectCode.value
+                };
+    
+                dbRefUsers.child(firebase.auth().currentUser.uid)
+                          .child(itemKey)
+                          .update(data)
+                          .then(() => {
+                              console.log(`Subject has been updated successfully`);
+                          })
+                          .catch((error) => {
+                              alert('Failed to updated subject. ', error);
+                          });
+                
+                currentLink.innerText = "Consult Subject";
+                consultSubject.setAttribute('class', 'd-block');
+                updateSubject.setAttribute('class', 'd-none');
+
+            }
+
+        }
+
     }
+}
+
+function handleUploadFile(uploadFile){
+    return new Promise((resolve, reject) => {
+        uploadFile.on('state_changed', 
+                   function(snapshot){
+                       console.log((snapshot.bytesTransferred / snapshot.totalBytes * 100).toFixed(2) + '%');
+                   },
+                   function (error) {
+                    reject(error)
+                   },
+                   function () {
+                    console.log('Sucesso no upload')
+                    resolve()
+                  });
+    });
 }
 
 function loadDataToTable(dataSnapshot){
@@ -103,6 +172,7 @@ function loadDataToTable(dataSnapshot){
         btnEdit.setAttribute('onclick', `prepareUpdateSubject('${counter}', 
                                                               '${childValue.subjectCode}', 
                                                               '${childValue.subjectName}', 
+                                                              '${childValue.imgUrl}',
                                                               '${child.key}')`);
         
         tdEdit.appendChild(btnEdit);
@@ -111,7 +181,7 @@ function loadDataToTable(dataSnapshot){
     });
 }
 
-function prepareUpdateSubject(subjectId,subjectCode, subjectName, childKey){
+function prepareUpdateSubject(subjectId,subjectCode, subjectName, subjectFile, childKey){
 
     itemKey = childKey;
 
@@ -127,6 +197,7 @@ function prepareUpdateSubject(subjectId,subjectCode, subjectName, childKey){
     inputSubjectId.value = subjectId;
     inputSubjectCode.value = subjectCode;
     inputSubjectName.value = subjectName;
+    inputSubjectFile.innerHTML = subjectFile;
     
 }
 

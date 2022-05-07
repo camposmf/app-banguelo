@@ -1,9 +1,13 @@
 
 .consult-table .page-title{
-    margin: 5rem 0 3rem;
+    margin: 3rem;
     text-align: center;
 }
 
+.form-subject .subject-file{
+    border: none;
+    padding-left: 0px;
+}
 
 .page-content .btn-subject{
     font-weight: bold;

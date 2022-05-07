@@ -3,6 +3,11 @@
     width: 200px;
 }
 
+.form-subject .subject-file{
+    border: none;
+    padding-left: 0px;
+}
+
 .page-content {
     height: 80vh;
     display: flex;
